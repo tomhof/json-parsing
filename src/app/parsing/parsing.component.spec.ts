@@ -2,15 +2,16 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ParsingComponent } from './parsing.component';
 
+
 describe('ParsingComponent', () => {
   let component: ParsingComponent;
   let fixture: ComponentFixture<ParsingComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ParsingComponent ]
+      declarations: [ParsingComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

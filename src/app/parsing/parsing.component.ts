@@ -22,12 +22,11 @@ export class ParsingComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    var result1 = convert.xml2json(sampleXml, { compact: true, spaces: 4 });
-    var result2 = convert.xml2json(sampleXml, { compact: false, spaces: 4 });
-    console.log(result1, '\n', result2);
+    var asJson = convert.xml2json(sampleXml, { compact: true, spaces: 2 });
     this.content = 'XML:\n' + sampleXml
-      + '\n\nresult1 (compact):\n' + result1
-      + '\n\nresult2 (verbose):\n' + result2;
+      + '\n\nasJson:\n' + asJson;
   }
+
+  parse
 
 }
