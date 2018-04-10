@@ -27,6 +27,4 @@ export class ParsingComponent implements OnInit {
       + '\n\nasJson:\n' + asJson;
   }
 
-  parse
-
 }

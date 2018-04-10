@@ -53,11 +53,12 @@ describe('ToJsonParserService', () => {
       + '  }\n'
       + '}';
     let actualResult = service.parseXmlToJson(sampleXml);
-    expect(expectedJson.valueOf() === actualResult.valueOf()).toBeTruthy();
+    expect(actualResult).toBe(expectedJson);
   });
 
   it('parse ebida order', () => {
     let jsonResult = service.parseXmlToJson(xml.data);
-    console.log(jsonResult);
+    //console.log(jsonResult);
+    expect(jsonResult.indexOf('"Questionnaire"')).toBe(4);
   });
 });
