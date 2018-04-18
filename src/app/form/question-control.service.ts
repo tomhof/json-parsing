@@ -18,7 +18,7 @@ export class QuestionControlService {
 
   addFormControlForQuestion(question: QuestionBase<any>, controls: {}) {
     if (question.controlType === 'group') {
-      controls[question.key] = new FormControl();
+      controls[question.key] = new FormControl(); // Dummy
       (question as QuestionGroup).children.forEach(question => this.addFormControlForQuestion(question, controls));
     } else {
       controls[question.key] = question.required

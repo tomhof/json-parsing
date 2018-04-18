@@ -28,12 +28,12 @@ export class QuestionService {
     let res: QuestionBase<any>[] = [];
     this.pushQuestionnaireDescriptions(q, res);
     for (let i of q.items) {
-      res.push(...this.getQuestionsForItem(i, 1));
+      res.push(this.getQuestionForItem(i, 1));
     }
     return res;
   }
 
-  // TODO TMP
+  // TODO TMP labels
   private pushQuestionnaireDescriptions(q, res) {
     let group = new QuestionGroup({ key: q.id, label: 'Questionnaire Kopfdaten' });
     group.nestingLevel = 0;
@@ -49,8 +49,8 @@ export class QuestionService {
     res.push(group);
   }
 
-  private getQuestionsForItem(item: Item, nestingLevel: number): QuestionBase<any>[] {
-    let res: QuestionBase<any>[] = [];
+  // accessible for tests
+  getQuestionForItem(item: Item, nestingLevel: number): QuestionBase<any> {
     let widget: QuestionBase<any>;
     switch (item.type) {
       case 'group':
@@ -60,7 +60,7 @@ export class QuestionService {
         });
         groupWidget.nestingLevel = nestingLevel;
         for (let i of item.items) {
-          groupWidget.children.push(this.getQuestionsForItem(i, nestingLevel + 1)[0]);
+          groupWidget.children.push(this.getQuestionForItem(i, nestingLevel + 1));
         }
         widget = groupWidget;
         break;
@@ -118,10 +118,7 @@ export class QuestionService {
         }
         break;
     }
-    if (widget) {
-      res.push(widget);
-    }
-    return res;
+    return widget;
   }
 
 }

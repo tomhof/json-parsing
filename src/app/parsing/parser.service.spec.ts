@@ -86,7 +86,7 @@ describe('ParserService', () => {
     expect(items[0].linkId).toBe('order.number');
     expect(items[1].linkId).toBe('order.date');
     // etc.
-    console.log(JSON.stringify(items));
+    // console.log(JSON.stringify(items));
   });
 
 
