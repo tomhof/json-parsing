@@ -1,10 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Item, Questionnaire } from './questionnaire.model';
+
+import { Item, Questionnaire } from '../model/questionnaire.model';
+
+import * as convert from 'xml-js';
+
 
 @Injectable()
-export class ToObjectParserService {
+export class ParserService {
 
   constructor() { }
+
+  parseXmlToJson(xml: string): string {
+    return convert.xml2json(xml, { compact: true, spaces: 2 });
+  }
 
   convertQuestionnaire(str: string): Questionnaire {
     let obj = JSON.parse(str);
