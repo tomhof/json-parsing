@@ -120,7 +120,7 @@ describe('ParserService', () => {
 
   it('full Questionnaire from JSON', () => {
     let jsonQ: string = service.parseXmlToJson(xml.data);
-    let q: Questionnaire = service.convertQuestionnaire(jsonQ);
+    let q: Questionnaire = service.convertToQuestionnaire(jsonQ);
     expect(q).toBeTruthy();
     //console.log('quest: ' + JSON.stringify(quest));
     expect(q.id).toBe('ebida-order-1');

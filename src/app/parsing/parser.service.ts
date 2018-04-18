@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { Item, Questionnaire } from '../model/questionnaire.model';
-
 import * as convert from 'xml-js';
+
+import { Item, Questionnaire } from '../model/questionnaire.model';
 
 
 @Injectable()
@@ -14,8 +14,8 @@ export class ParserService {
     return convert.xml2json(xml, { compact: true, spaces: 2 });
   }
 
-  convertQuestionnaire(str: string): Questionnaire {
-    let obj = JSON.parse(str);
+  convertToQuestionnaire(jsonStr: string): Questionnaire {
+    let obj = JSON.parse(jsonStr);
     obj = obj.Questionnaire;
     let q = this.extractQuestionnaireHeader(obj);
     q.items = [];
@@ -23,13 +23,13 @@ export class ParserService {
     return q;
   }
 
-  extractQuestionnaireHeader(obj: any): Questionnaire {
+  private extractQuestionnaireHeader(obj: any): Questionnaire {
     let q = new Questionnaire();
     q.id = obj.id._attributes.value;
     let text = 'Status: [' + obj.text.status._attributes.value + '] - Note: [' + obj.text.div.pre._text + ']';
     q.text = text;
     q.url = obj.url._attributes.value;
-    // TODO ...
+    // TODO ...!
     return q;
   }
 
