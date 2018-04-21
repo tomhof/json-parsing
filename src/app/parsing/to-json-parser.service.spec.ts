@@ -2,7 +2,11 @@ import { TestBed, inject, async } from '@angular/core/testing';
 
 import { ToJsonParserService } from './to-json-parser.service';
 
-import * as xml from './ebida-order-1.xml';
+import * as xml1 from './ebida-order-1.xml';
+
+import * as xml2 from './ebida-order-2.xml';
+
+import * as xml3 from './ebida-order-3.xml';
 
 
 describe('ToJsonParserService', () => {
@@ -56,8 +60,22 @@ describe('ToJsonParserService', () => {
     expect(expectedJson.valueOf() === actualResult.valueOf()).toBeTruthy();
   });
 
-  it('parse ebida order', () => {
-    let jsonResult = service.parseXmlToJson(xml.data);
+  it('parse ebida order 1', () => {
+    let jsonResult = service.parseXmlToJson(xml1.data1);
     console.log(jsonResult);
+    
   });
+
+  it('parse ebida order 2', () => {
+    let jsonResult = service.parseXmlToJson(xml2.data2);
+    console.log(jsonResult);
+    
+  });
+
+  it('parse ebida order 3', () => {
+    let jsonResult = service.parseXmlToJson(xml3.data3);
+    console.log(jsonResult);
+    
+  });
+
 });
