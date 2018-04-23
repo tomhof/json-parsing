@@ -3,8 +3,8 @@ import { TestBed, inject, async } from '@angular/core/testing';
 import { ParserService } from './parser.service';
 import { Item, Questionnaire } from '../model/questionnaire.model';
 
-import * as xml from '../test/ebida-order-1.xml';
-import * as xmlItems from '../test/ebida-order-3.xml';
+import * as xml from '../test-data/ebida-order-1.xml';
+import * as xmlItems from '../test-data/ebida-order-3.xml';
 
 
 describe('ParserService', () => {
