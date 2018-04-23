@@ -43,7 +43,7 @@ export class QuestionnaireTestComponent {
   }
 
   loadQuestionnaire() {
-    let jsonString = this.parserService.parseXmlToJson(xml.data);
+    let jsonString = this.parserService.parseXmlToJson(xml.data1);
     let questionnaire = this.parserService.convertToQuestionnaire(jsonString);
     this.questions = this.questionService.getQuestions(questionnaire);
   }

@@ -1,7 +1,7 @@
 
 // for testing only !
 
-export const data = `<Questionnaire 
+export const data1 = `<Questionnaire 
     xmlns="http://hl7.org/fhir">
     <id value="ebida-order-1"/>
     <text>

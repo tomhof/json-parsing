@@ -59,7 +59,7 @@ describe('ParserService', () => {
   });
 
   it('parse ebida order XML 2 JSON', () => {
-    let jsonResult = service.parseXmlToJson(xml.data);
+    let jsonResult = service.parseXmlToJson(xml.data1);
     //console.log(jsonResult);
     expect(jsonResult.indexOf('"Questionnaire"')).toBe(4);
   });
@@ -119,7 +119,7 @@ describe('ParserService', () => {
   });
 
   it('full Questionnaire from JSON', () => {
-    let jsonQ: string = service.parseXmlToJson(xml.data);
+    let jsonQ: string = service.parseXmlToJson(xml.data1);
     let q: Questionnaire = service.convertToQuestionnaire(jsonQ);
     expect(q).toBeTruthy();
     //console.log('quest: ' + JSON.stringify(quest));
